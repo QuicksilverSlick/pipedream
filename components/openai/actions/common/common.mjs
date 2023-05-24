@@ -22,6 +22,12 @@ export default {
       type: "string",
       optional: true,
     },
+    memoryKey: {
+      label: "Memory Key",
+      description: "If provided, this unique value will allow the assistant to continue a conversation from previous messages. Use something that won't change over the course of a conversation (like a user's email address). If blank, the assistant will not remember this conversation going forward.",
+      type: "string",
+      optional: true,
+    },
     n: {
       label: "N",
       description: "How many completions to generate for each prompt",
@@ -65,6 +71,9 @@ export default {
         top_p: this.topP
           ? +this.topP
           : this.topP,
+        memory_key: this.memoryKey
+          ? +this.memoryKey
+          : this.memoryKey,
         n: this.n,
         stop: this.stop,
         presence_penalty: this.presencePenalty
